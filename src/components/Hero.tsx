@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Marquee from './Marquee';
 import CitySection from './CitySection';
 import WhyChooseUs from './WhyChooseUs';
+import Contact from './Contact';
 
 export default function Hero() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -159,6 +160,8 @@ export default function Hero() {
       />
 
       <WhyChooseUs />
+
+      <Contact />
     </>
   );
 }
