@@ -87,21 +87,21 @@ export default function CitySection({ id, cityLabel, cityName, cityNameItalic, c
     const applyMomentum = () => {
       stopAnimation();
 
-      const friction = 0.95;
-      let velocity = dragStateRef.current.velocity;
+      const friction = 0.92;
+      let velocity = dragStateRef.current.velocity * 0.8;
 
       const animate = () => {
+        if (Math.abs(velocity) < 0.1) {
+          dragStateRef.current.velocity = 0;
+          return;
+        }
+
         velocity *= friction;
         track.scrollLeft -= velocity;
-
-        if (Math.abs(velocity) > 0.5) {
-          dragStateRef.current.animationId = requestAnimationFrame(animate);
-        } else {
-          dragStateRef.current.velocity = 0;
-        }
+        dragStateRef.current.animationId = requestAnimationFrame(animate);
       };
 
-      if (Math.abs(velocity) > 0.5) {
+      if (Math.abs(velocity) > 0.1) {
         dragStateRef.current.animationId = requestAnimationFrame(animate);
       }
     };
@@ -131,7 +131,7 @@ export default function CitySection({ id, cityLabel, cityName, cityNameItalic, c
 
       const clientX = getClientX(e);
       const now = performance.now();
-      const deltaTime = now - dragStateRef.current.lastTime || 1;
+      const deltaTime = Math.max(now - dragStateRef.current.lastTime, 1);
       const deltaX = clientX - dragStateRef.current.lastX;
 
       if (Math.abs(clientX - dragStateRef.current.startX) > 3) {
@@ -141,7 +141,7 @@ export default function CitySection({ id, cityLabel, cityName, cityNameItalic, c
         }
       }
 
-      dragStateRef.current.velocity = deltaX / deltaTime * 16;
+      dragStateRef.current.velocity = (deltaX / deltaTime) * 10;
       dragStateRef.current.lastX = clientX;
       dragStateRef.current.lastTime = now;
 
