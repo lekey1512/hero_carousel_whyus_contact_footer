@@ -8,20 +8,76 @@ interface CitySectionProps {
   cityKey: string;
 }
 
-const models = [
-  { name: 'Mai Linh', age: 22, district: 'Quận 1', price: 16, height: 162, weight: 50, views: 185.4, tags: ['Nhiệt tình', 'Chiều chuộng'], vip: false },
-  { name: 'Thùy Tiên', age: 20, district: 'Quận 3', price: 15, height: 165, weight: 52, views: 172.1, tags: ['Tính cảm', 'Lắng nghe'], vip: true },
-  { name: 'Hà Mỹ', age: 19, district: 'Quận 10', price: 13.5, height: 160, weight: 48, views: 165.3, tags: ['Hài hước', 'Dễ thương'], vip: false },
-  { name: 'Khánh Huyền', age: 23, district: 'Bình Thạnh', price: 13, height: 163, weight: 51, views: 158.9, tags: ['Qua đêm'], vip: false },
-  { name: 'Mỹ Linh', age: 21, district: 'Quận 2', price: 11.5, height: 168, weight: 54, views: 149.8, tags: ['Vui vẻ'], vip: true },
-  { name: 'Phương Anh', age: 24, district: 'Quận 2', price: 8, height: 155, weight: 46, views: 145.2, tags: ['Chiều chuộng'], vip: false },
-  { name: 'Ngọc Hân', age: 20, district: 'Quận 5', price: 12, height: 161, weight: 49, views: 162.5, tags: ['Tính cảm'], vip: false },
-  { name: 'Linh Đan', age: 22, district: 'Quận 7', price: 14, height: 167, weight: 53, views: 170.8, tags: ['Nhiệt tình'], vip: true },
-  { name: 'Hoa Hương', age: 21, district: 'Quận 1', price: 9.5, height: 159, weight: 47, views: 155.6, tags: ['Dễ thương'], vip: false },
-  { name: 'Vy Khanh', age: 23, district: 'Bình Thạnh', price: 11, height: 164, weight: 50, views: 168.3, tags: ['Qua đêm'], vip: false },
-  { name: 'Tâm Nhi', age: 20, district: 'Quận 3', price: 10, height: 158, weight: 45, views: 152.1, tags: ['Hài hước'], vip: false },
-  { name: 'Diễm My', age: 24, district: 'Quận 10', price: 15.5, height: 166, weight: 52, views: 174.9, tags: ['Lắng nghe', 'Vui vẻ'], vip: true },
-];
+interface Model {
+  name: string;
+  age: number;
+  district: string;
+  price: number;
+  height: number;
+  weight: number;
+  views: number;
+  tags: string[];
+  vip: boolean;
+}
+
+const cityModels: Record<string, Model[]> = {
+  sg: [
+    { name: 'Mai Linh', age: 22, district: 'Quận 1', price: 16, height: 162, weight: 50, views: 185.4, tags: ['Nhiệt tình', 'Chiều chuộng'], vip: true },
+    { name: 'Thùy Tiên', age: 20, district: 'Quận 3', price: 15, height: 165, weight: 52, views: 172.1, tags: ['Tính cảm', 'Lắng nghe'], vip: true },
+    { name: 'Hà Mỹ', age: 19, district: 'Quận 10', price: 13.5, height: 160, weight: 48, views: 165.3, tags: ['Hài hước', 'Dễ thương'], vip: true },
+    { name: 'Khánh Huyền', age: 23, district: 'Bình Thạnh', price: 13, height: 163, weight: 51, views: 158.9, tags: ['Qua đêm'], vip: false },
+    { name: 'Mỹ Linh', age: 21, district: 'Quận 7', price: 11.5, height: 168, weight: 54, views: 149.8, tags: ['Vui vẻ'], vip: true },
+    { name: 'Phương Anh', age: 24, district: 'Quận 2', price: 8, height: 155, weight: 46, views: 145.2, tags: ['Chiều chuộng'], vip: false },
+    { name: 'Ngọc Trinh', age: 22, district: 'Phú Nhuận', price: 12, height: 164, weight: 50, views: 141.1, tags: ['Nhiệt tình'], vip: true },
+    { name: 'Bảo Châu', age: 21, district: 'Quận 5', price: 14, height: 166, weight: 53, views: 138, tags: ['Sang trọng', 'Lịch sự'], vip: false },
+    { name: 'Lan Anh', age: 23, district: 'Gò Vấp', price: 10, height: 158, weight: 47, views: 132, tags: ['Thân thiện'], vip: false },
+    { name: 'Thu Hà', age: 20, district: 'Tân Bình', price: 9, height: 162, weight: 49, views: 128, tags: ['Nhẹ nhàng', 'Dịu dàng'], vip: false },
+    { name: 'Minh Thư', age: 25, district: 'Quận 12', price: 11, height: 167, weight: 52, views: 124, tags: ['Năng động'], vip: true },
+    { name: 'Hồng Ngọc', age: 24, district: 'Quận 9', price: 13, height: 160, weight: 48, views: 119, tags: ['Bí ẩn', 'Tinh tế'], vip: false },
+  ],
+  hn: [
+    { name: 'Hồng Thắm', age: 21, district: 'Hoàn Kiếm', price: 15, height: 163, weight: 49, views: 178.2, tags: ['Dịu dàng', 'Lắng nghe'], vip: true },
+    { name: 'Diệu Nhi', age: 23, district: 'Ba Đình', price: 14, height: 160, weight: 51, views: 164.5, tags: ['Nhiệt tình', 'Vui vẻ'], vip: true },
+    { name: 'Ngọc Thảo', age: 19, district: 'Cầu Giấy', price: 12, height: 165, weight: 47, views: 158.1, tags: ['Chiều chuộng'], vip: true },
+    { name: 'Thanh Hà', age: 25, district: 'Đống Đa', price: 16, height: 158, weight: 52, views: 143.7, tags: ['Sang trọng', 'Tinh tế'], vip: false },
+    { name: 'Bích Phương', age: 22, district: 'Hai Bà Trưng', price: 10, height: 166, weight: 53, views: 136.9, tags: ['Thân thiện', 'Hài hước'], vip: false },
+    { name: 'Quỳnh Anh', age: 20, district: 'Tây Hồ', price: 9, height: 162, weight: 48, views: 129.4, tags: ['Qua đêm'], vip: true },
+    { name: 'Trà My', age: 24, district: 'Thanh Xuân', price: 13, height: 159, weight: 50, views: 122.8, tags: ['Nhẹ nhàng'], vip: false },
+    { name: 'Hải Yến', age: 27, district: 'Hà Đông', price: 11, height: 167, weight: 54, views: 118.3, tags: ['Tình cảm', 'Lãng mạn'], vip: false },
+    { name: 'Vân Anh', age: 21, district: 'Long Biên', price: 8, height: 161, weight: 46, views: 112.6, tags: ['Năng động'], vip: false },
+    { name: 'Phương Linh', age: 23, district: 'Nam Từ Liêm', price: 12, height: 164, weight: 51, views: 108.9, tags: ['Bí ẩn'], vip: false },
+    { name: 'Thúy Nga', age: 19, district: 'Hoàng Mai', price: 14, height: 156, weight: 47, views: 104.2, tags: ['Chiều chuộng', 'Dễ thương'], vip: false },
+    { name: 'Mỹ Duyên', age: 26, district: 'Bắc Từ Liêm', price: 10, height: 168, weight: 55, views: 98.7, tags: ['Vui vẻ', 'Nhiệt tình'], vip: false },
+  ],
+  dn: [
+    { name: 'Hoài Thương', age: 20, district: 'Hải Châu', price: 13, height: 161, weight: 48, views: 162.3, tags: ['Vui vẻ', 'Năng động'], vip: true },
+    { name: 'Cẩm Ly', age: 22, district: 'Thanh Khê', price: 11, height: 164, weight: 52, views: 151.8, tags: ['Chiều chuộng'], vip: true },
+    { name: 'Thiên Kim', age: 25, district: 'Sơn Trà', price: 15, height: 158, weight: 50, views: 144.2, tags: ['Lãng mạn', 'Tinh tế'], vip: true },
+    { name: 'Bảo Ngọc', age: 19, district: 'Ngũ Hành Sơn', price: 9, height: 166, weight: 46, views: 138.6, tags: ['Nhiệt tình'], vip: false },
+    { name: 'Yến Nhi', age: 23, district: 'Liên Chiểu', price: 12, height: 160, weight: 51, views: 131.4, tags: ['Thân thiện', 'Dễ thương'], vip: true },
+    { name: 'Triều Tiên', age: 21, district: 'Cẩm Lệ', price: 10, height: 163, weight: 49, views: 124.9, tags: ['Qua đêm'], vip: false },
+    { name: 'Hà Phương', age: 27, district: 'Hòa Vang', price: 16, height: 167, weight: 53, views: 118.7, tags: ['Sang trọng'], vip: false },
+    { name: 'Kim Ngân', age: 24, district: 'Bắc Mỹ An', price: 14, height: 155, weight: 47, views: 113.2, tags: ['Tình cảm', 'Lắng nghe'], vip: true },
+    { name: 'Tuyết Mai', age: 20, district: 'Mỹ Khê', price: 8, height: 162, weight: 50, views: 107.5, tags: ['Bí ẩn'], vip: false },
+    { name: 'Linh Chi', age: 22, district: 'An Hải', price: 11, height: 165, weight: 54, views: 102.8, tags: ['Nhẹ nhàng', 'Dịu dàng'], vip: true },
+    { name: 'Nhã Uyên', age: 26, district: 'Hòa Xuân', price: 13, height: 159, weight: 48, views: 97.4, tags: ['Hài hước'], vip: false },
+    { name: 'Phúc An', age: 19, district: 'Phước Mỹ', price: 9, height: 168, weight: 46, views: 91.6, tags: ['Chiều chuộng', 'Vui vẻ'], vip: false },
+  ],
+  nt: [
+    { name: 'Ngọc Hân', age: 23, district: 'Lộc Thọ', price: 14, height: 165, weight: 51, views: 171.5, tags: ['Lãng mạn', 'Chiều chuộng'], vip: true },
+    { name: 'Hương Giang', age: 19, district: 'Phương Sài', price: 10, height: 160, weight: 48, views: 159.3, tags: ['Vui vẻ', 'Năng động'], vip: true },
+    { name: 'Thảo Nguyên', age: 21, district: 'Phương Sơn', price: 12, height: 163, weight: 50, views: 148.7, tags: ['Nhẹ nhàng'], vip: true },
+    { name: 'Minh Châu', age: 26, district: 'Vĩnh Hải', price: 16, height: 158, weight: 53, views: 141.2, tags: ['Sang trọng', 'Tinh tế'], vip: true },
+    { name: 'Lan Phương', age: 20, district: 'Vĩnh Nguyên', price: 9, height: 167, weight: 47, views: 135.6, tags: ['Nhiệt tình', 'Dễ thương'], vip: false },
+    { name: 'Thi Thơ', age: 24, district: 'Vĩnh Phước', price: 13, height: 161, weight: 52, views: 128.4, tags: ['Qua đêm'], vip: false },
+    { name: 'Quỳnh Như', age: 22, district: 'Vĩnh Thọ', price: 11, height: 164, weight: 49, views: 121.9, tags: ['Tình cảm'], vip: true },
+    { name: 'Hồng Loan', age: 27, district: 'Xương Huân', price: 15, height: 156, weight: 54, views: 116.3, tags: ['Bí ẩn', 'Hấp dẫn'], vip: false },
+    { name: 'Bảo Trân', age: 19, district: 'Tân Lập', price: 8, height: 162, weight: 46, views: 110.8, tags: ['Thân thiện'], vip: false },
+    { name: 'Ánh Nguyệt', age: 25, district: 'Phước Long', price: 12, height: 168, weight: 51, views: 105.2, tags: ['Chiều chuộng', 'Dịu dàng'], vip: false },
+    { name: 'Kim Anh', age: 21, district: 'Vĩnh Trường', price: 10, height: 159, weight: 48, views: 99.7, tags: ['Hài hước', 'Vui vẻ'], vip: true },
+    { name: 'Thùy Dương', age: 23, district: 'Phước Tiến', price: 14, height: 166, weight: 53, views: 94.1, tags: ['Lắng nghe', 'Chia sẻ'], vip: false },
+  ],
+};
 
 export default function CitySection({ id, cityLabel, cityName, cityNameItalic, cityKey }: CitySectionProps) {
   const dragStateRef = useRef({
@@ -38,6 +94,8 @@ export default function CitySection({ id, cityLabel, cityName, cityNameItalic, c
   useEffect(() => {
     const track = document.getElementById(`track-${cityKey}`);
     if (!track) return;
+
+    const models = cityModels[cityKey] || [];
 
     track.innerHTML = models.map((model, index) => {
       const rank = index < 3 ? index + 1 : 0;
